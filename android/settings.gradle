@@ -1,0 +1,3 @@
+rootProject.name = 'Quota'
+
+include ':app'

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   View,
   Button,
+  Text,
   StyleSheet,
 } from 'react-native'
 import WisdomMessages from './WisdomMessages'
@@ -12,32 +13,44 @@ class Quota extends Component {
     super()
 
     this.state = {
-      positives,
-      positiveLength: positives.length,
-      messages: ['fun', 'life', 'good']
+      positivesLength: positives.length,
+      messages: ['', '', ''],
     }
   }
 
-  _getMessage = () => {
-    const index = Math.floor(Math.random() * (this.state.positiveLength))
-    return positives[index]
+  componentDidMount() {
+    this.setState({
+      messages: this._getNewMessages()
+    })
+  }
+
+  _getNewMessages = () => {
+    const length = this.state.positivesLength
+    const index = () => Math.floor(Math.random() * length)
+    const messages = [0, 1, 2].map(index).map(i => positives[i])
+
+    // Check for duplicate messages.
+    if (messages.reduce((a, message) => a.set(message), new Map()).size < 3) {
+      this._getNewMessages()
+    }
+
+    return messages
   }
 
   _shuffle = () => {
-    const messages = this.state.messages.map(() => this._getMessage())
-
-    this.setState(messages)
+    this.setState({
+      messages: this._getNewMessages()
+    })
   }
 
   render() {
     return (
       <View style={styles.view}>
+        <WisdomMessages messages={this.state.messages} />
         <Button
           title="Shuffle"
           onPress={this._shuffle}
-          style={styles.button}
-      />
-        <WisdomMessages messages={this.state.messages} />
+        />
       </View>
     )
   }

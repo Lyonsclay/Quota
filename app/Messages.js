@@ -5,11 +5,11 @@ import {
   StyleSheet,
 } from 'react-native'
 
-const WisdomMessages = ({messages}) => (
-  <View style={styles.view}>
-    <Text>{messages[0]}</Text>
-    <Text>{messages[1]}</Text>
-    <Text>{messages[2]}</Text>
+const Messages = ({messages}) => (
+  <View >
+    <Text style={styles.text}>{messages[0]}</Text>
+    <Text style={styles.text}>{messages[1]}</Text>
+    <Text style={styles.text}>{messages[2]}</Text>
   </View>
 )
 
@@ -20,7 +20,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightblue',
+  },
+  text: {
+    height: 20,
   }
 })
 
-export default WisdomMessages
+export default Messages

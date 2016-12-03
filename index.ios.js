@@ -11,7 +11,8 @@ import {
   Text,
   View
 } from 'react-native';
-import App from './app/Quota' 
+import App from './app/Quota'
+
 export default class Quota extends Component {
   render() {
     return (

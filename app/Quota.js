@@ -5,7 +5,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native'
-import WisdomMessages from './WisdomMessages'
+import Messages from './Messages'
 import positives from '../public/positives'
 
 class Quota extends Component {
@@ -46,11 +46,16 @@ class Quota extends Component {
   render() {
     return (
       <View style={styles.view}>
-        <WisdomMessages messages={this.state.messages} />
-        <Button
-          title="Shuffle"
-          onPress={this._shuffle}
-        />
+        <View style={styles.message}>
+          <Messages messages={this.state.messages} />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Shuffle"
+            onPress={this._shuffle}
+            color="black"
+          />
+        </View>
       </View>
     )
   }
@@ -59,9 +64,18 @@ class Quota extends Component {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-
+    alignItems: 'center',
+    backgroundColor: 'lightblue',
+  },
+  button: {
+    flex: 1,
+    borderColor: 'black',
+    borderWidth: 2,
+  },
+  message: {
+    flex: 3,
+    justifyContent: 'center',
+    height: 200,
   }
 })
 

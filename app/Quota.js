@@ -3,6 +3,7 @@ import {
   View,
   Button,
   Text,
+  Image,
   StyleSheet,
 } from 'react-native'
 import Messages from './Messages'
@@ -34,6 +35,7 @@ class Quota extends Component {
       title: 'Reflect on Joy'
     }
   }
+
 
   _getNewMessages = () => {
     const { list, listLength } = this.state
@@ -74,32 +76,46 @@ class Quota extends Component {
 
   render() {
     return (
-      <View style={styles.view}>
-        <View style={styles.title}>
-          <Text style={styles.text}>
-            {this.state.title}
-          </Text>
+      <Image
+        source={require('../public/images/yosemite.jpg')}
+        style={styles.image}
+      >
+        <View style={styles.container}>
+          <View style={styles.title}>
+            <Text style={styles.text}>
+              {this.state.title}
+            </Text>
+          </View>
+          <View style={styles.messages}>
+            <Messages messages={this.state.messages} />
+          </View>
+          <View style={styles.listMenu}>
+            <ListMenu
+              setList={this._setList}
+            />
+          </View>
         </View>
-        <View style={styles.messages}>
-          <Messages messages={this.state.messages} />
-        </View>
-        <View style={styles.listMenu}>
-          <ListMenu
-            setList={this._setList}
-          />
-        </View>
-      </View>
+      </Image>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  view: {
+  image: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'column',
-    backgroundColor: 'lightblue',
+    backgroundColor: 'rgba(250, 240, 240, 0.1)',
+    alignSelf: 'stretch',
   },
   title: {
     flex: 1,
@@ -110,9 +126,10 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'Times New Roman',
     fontSize: 20,
+    fontWeight: '500',
     textAlign: 'center',
     color: 'rgba(0, 0, 0, .7)',
-    backgroundColor: 'rgba(255, 255, 255, .15)',
+    backgroundColor: 'rgba(255, 255, 255, .1)',
     paddingTop: 4,
     paddingBottom: 4,
     paddingRight: 10,

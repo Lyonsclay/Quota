@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 
 const Messages = ({messages}) => (
-  <View >
+  <View style={styles.view}>
     <Text style={styles.text}>{messages[0]}</Text>
     <Text style={styles.text}>{messages[1]}</Text>
     <Text style={styles.text}>{messages[2]}</Text>
@@ -15,13 +15,11 @@ const Messages = ({messages}) => (
 
 const styles = StyleSheet.create({
   view: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'lightblue',
   },
   text: {
     fontFamily: 'Times New Roman',
     fontStyle: 'italic',
+    fontWeight: '500',
     textAlign: 'center',
     marginBottom: 8,
     fontSize: 20,

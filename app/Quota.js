@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   StyleSheet,
+  LayoutAnimation,
 } from 'react-native'
 import Messages from './Messages'
 import ListMenu from './ListMenu'
@@ -36,7 +37,6 @@ class Quota extends Component {
     }
   }
 
-
   _getNewMessages = () => {
     const { list, listLength } = this.state
     const index = () => Math.floor(Math.random() * listLength)
@@ -53,7 +53,7 @@ class Quota extends Component {
 
   _shuffle = () => {
     const messages = this._getNewMessages()
-
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
     this.setState({
       messages,
     })

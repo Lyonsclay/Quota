@@ -4,32 +4,49 @@ import {
   Button,
   Text,
   StyleSheet,
+  Dimensions,
 } from 'react-native'
+
+const {height, width} = Dimensions.get('window')
 
 const ListMenu = ({setList}) => (
   <View style={styles.view}>
-    <Button
-      title="Inhale"
-      onPress={() => setList('positives')}
-    />
-    <Button
-      title="Exhale"
-      onPress={() => setList('negatives')}
-    />
-    <Button
-      title="Truths"
-      onPress={() => setList('affirmations')}
-    />
+    <View style={styles.button}>
+      <Button
+        title="Inhale"
+        onPress={() => setList('positives')}
+        color="black"
+      />
+    </View>
+    <View style={styles.button}>
+      <Button
+        title="Exhale"
+        onPress={() => setList('negatives')}
+        color="black"
+      />
+    </View>
+    <View style={styles.button}>
+      <Button
+        title="Truths"
+        onPress={() => setList('affirmations')}
+        color="black"
+      />
+    </View>
   </View>
 )
 
 const styles = StyleSheet.create({
   view: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width
   },
-  text: {
-    height: 20,
-  }
+  button: {
+    backgroundColor: 'teal',
+    borderWidth: 4,
+    borderColor: 'teal',
+    borderRadius: 6,
+  },
 })
 
 export default ListMenu

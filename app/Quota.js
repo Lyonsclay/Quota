@@ -87,10 +87,10 @@ class Quota extends Component {
           <Button
             title="Shuffle"
             onPress={this._shuffle}
-            color="black"
+            color="lightblue"
           />
         </View>
-        <View>
+        <View style={styles.listMenu}>
           <ListMenu
             setList={this._setList}
           />
@@ -104,22 +104,28 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'column',
     backgroundColor: 'lightblue',
   },
   title: {
-    flex: 3,
+    flex: 1,
     justifyContent: 'center'
   },
   button: {
-    flex: 1,
-    borderColor: 'black',
+    flex: 0,
+    borderColor: 'lightblue',
     borderWidth: 2,
   },
   message: {
-    flex: 3,
+    flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
     height: 200,
-  }
+  },
+  listMenu: {
+    flex: 1,
+  },
 })
 
 export default Quota

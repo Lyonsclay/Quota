@@ -12,9 +12,9 @@ import negatives from '../public/negatives'
 import affirmations from '../public/affirmations'
 
 const lists = {
-   positives, 
-   negatives, 
-   affirmations
+  positives,
+  negatives,
+  affirmations
 }
 
 const title = {
@@ -35,40 +35,41 @@ class Quota extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     messages: this._getNewMessages()
-  //   })
-  // }
-
   _getNewMessages = () => {
     const { list, listLength } = this.state
     const index = () => Math.floor(Math.random() * listLength)
     const messages = [0, 1, 2].map(index).map(i => list[i])
 
     // Check for duplicate messages.
-    if (messages.reduce((a, message) => a.set(message), new Map()).size < 3) {
-      if (messages[0]) {
-        this._getNewMessages()
-      }
+    const duplicates = messages.reduce((a, message) => a.set(message), new Map()).size < 3
+    if (duplicates && this.state.list.length) {
+      return this._getNewMessages()
     }
 
     return messages
   }
 
   _shuffle = () => {
+    const messages = this._getNewMessages()
+
     this.setState({
-      messages: this._getNewMessages()
+      messages,
     })
   }
 
   _setList = (listName) => {
-    this.setState({
-      list: lists[listName],
-      listLength: lists[listName].length,
-      title: title[listName]
-    })
-    this._shuffle()
+    if (title[listName] !== this.state.title) {
+      this.setState(
+        {
+          list: lists[listName],
+          listLength: lists[listName].length,
+          title: title[listName],
+        },
+        this._shuffle
+      )
+    } else {
+      this._shuffle()
+    }
   }
 
   render() {

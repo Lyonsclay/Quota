@@ -15,14 +15,18 @@ const Messages = ({messages}) => (
 
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
-    height: 150,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightblue',
   },
   text: {
-    height: 20,
+    fontFamily: 'Times New Roman',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginBottom: 8,
+    fontSize: 20,
+    width: 300,
+    color: 'rgba(0, 0, 0, .7)',
   }
 })
 

@@ -31,7 +31,7 @@ class Quota extends Component {
       listLength: 0,
       messages: ['', '', ''],
       list: [],
-      title: 'Welcome'
+      title: 'Reflect on Joy'
     }
   }
 
@@ -46,7 +46,7 @@ class Quota extends Component {
       return this._getNewMessages()
     }
 
-    return messages
+    return messages.sort((a, b) => a.length - b.length)
   }
 
   _shuffle = () => {
@@ -76,19 +76,12 @@ class Quota extends Component {
     return (
       <View style={styles.view}>
         <View style={styles.title}>
-          <Text>
+          <Text style={styles.text}>
             {this.state.title}
           </Text>
         </View>
-        <View style={styles.message}>
+        <View style={styles.messages}>
           <Messages messages={this.state.messages} />
-        </View>
-        <View style={styles.button}>
-          <Button
-            title="Shuffle"
-            onPress={this._shuffle}
-            color="lightblue"
-          />
         </View>
         <View style={styles.listMenu}>
           <ListMenu
@@ -110,21 +103,30 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'flex-end',
+    marginLeft: 20,
+    marginRight: 20,
   },
-  button: {
-    flex: 0,
-    borderColor: 'lightblue',
-    borderWidth: 2,
+  text: {
+    fontFamily: 'Times New Roman',
+    fontSize: 20,
+    textAlign: 'center',
+    color: 'rgba(0, 0, 0, .7)',
+    backgroundColor: 'rgba(255, 255, 255, .15)',
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
-  message: {
+  messages: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    height: 200,
   },
   listMenu: {
     flex: 1,
+    justifyContent: 'flex-end',
+    alignSelf: 'stretch',
+    paddingBottom: 70,
   },
 })
 

@@ -37,7 +37,7 @@ class Quota extends Component {
       listLength: 0,
       messages: ['', '', ''],
       list: [],
-      title: 'MY INSPIRATIONS'
+      title: 'HAPPY ANNIVERSARY!'
     }
   }
 
@@ -83,7 +83,7 @@ class Quota extends Component {
   render() {
     return (
       <Image
-        source={require('../public/images/sky_dome.jpg')}
+        source={require('../public/images/MonoLakeRainbow.jpg')}
         style={styles.image}
       >
         <View style={styles.container}>
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   messages: {
-    flex: 3,
+    flex: 2,
     justifyContent: 'flex-end',
   },
   listMenu: {

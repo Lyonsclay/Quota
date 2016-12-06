@@ -19,11 +19,15 @@ const lists = {
   affirmations
 }
 
-const title = {
-  positives: 'I breathe in, welcome, anchor and empower:',
-  negatives: 'I reject, release and breathe out any and all:',
-  affirmations: 'These are my truths:'
+
+
+const titles = {
+  positives: ['I BREATHE IN...', 'I WELCOME...', 'I ANCHOR & EMPOWER...'],
+  negatives: ['I REJECT...', 'I RELEASE...', 'I BREATHE OUT ANY & ALL...'],
+  affirmations: ['TRUTH IS EVERYTHING!', 'UPLIFTING VIBRATIONS', 'THIS IS ME!']
 }
+
+const ri = () => Math.floor(Math.random() * 3)
 
 class Quota extends Component {
   constructor() {
@@ -33,7 +37,7 @@ class Quota extends Component {
       listLength: 0,
       messages: ['', '', ''],
       list: [],
-      title: 'Reflect on Joy'
+      title: 'MY INSPIRATIONS'
     }
   }
 
@@ -60,12 +64,14 @@ class Quota extends Component {
   }
 
   _setList = (listName) => {
-    if (title[listName] !== this.state.title) {
+    
+    if (titles[listName] !== this.state.title) {
       this.setState(
         {
           list: lists[listName],
           listLength: lists[listName].length,
-          title: title[listName],
+          title: titles[listName][ri()],
+
         },
         this._shuffle
       )
@@ -77,7 +83,7 @@ class Quota extends Component {
   render() {
     return (
       <Image
-        source={require('../public/images/yosemite.jpg')}
+        source={require('../public/images/sky_dome.jpg')}
         style={styles.image}
       >
         <View style={styles.container}>
@@ -114,7 +120,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'column',
-    backgroundColor: 'rgba(250, 240, 240, 0.1)',
+    backgroundColor: 'rgba(250, 240, 240, 0.0)',
     alignSelf: 'stretch',
   },
   title: {
@@ -125,25 +131,25 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Times New Roman',
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: '500',
     textAlign: 'center',
     color: 'rgba(0, 0, 0, .7)',
-    backgroundColor: 'rgba(255, 255, 255, .1)',
+    backgroundColor: 'rgba(255, 255, 255, .4)',
     paddingTop: 4,
     paddingBottom: 4,
     paddingRight: 10,
     paddingLeft: 10,
   },
   messages: {
-    flex: 1,
-    justifyContent: 'center',
+    flex: 3,
+    justifyContent: 'flex-end',
   },
   listMenu: {
     flex: 1,
     justifyContent: 'flex-end',
     alignSelf: 'stretch',
-    paddingBottom: 70,
+    paddingBottom: 70
   },
 })
 

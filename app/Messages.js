@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     fontWeight: '500',
     textAlign: 'center',
-    marginBottom: 8,
-    fontSize: 20,
+    marginBottom: 25,
+    fontSize: 25,
     width: 300,
-    color: 'rgba(0, 0, 0, .7)',
+    color: 'rgba(0, 0, 0, 1)',
   }
 })
 

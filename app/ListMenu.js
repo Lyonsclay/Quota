@@ -15,21 +15,21 @@ const ListMenu = ({setList}) => (
       <Button
         title="Inhale"
         onPress={() => setList('positives')}
-        color="rgba(240, 240, 240, .5)"
+        color="rgba(240, 240, 240, .6)"
       />
     </View>
     <View style={styles.button}>
       <Button
         title="Exhale"
         onPress={() => setList('negatives')}
-        color="rgba(240, 240, 240, .5)"
+        color="rgba(240, 240, 240, .6)"
       />
     </View>
     <View style={styles.button}>
       <Button
         title="Truths"
         onPress={() => setList('affirmations')}
-        color="rgba(240, 240, 240, .5)"
+        color="rgba(240, 240, 240, .6)"
       />
     </View>
   </View>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   button: {
-    backgroundColor: 'rgba(0, 151, 255, 0.3)',
+    backgroundColor: 'rgba(0, 151, 255, 0.45)',
     borderRadius: 6,
   },
 })
